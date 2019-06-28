@@ -1,12 +1,15 @@
 //requires
 const express = require( 'express' );
 const app = express();
+const bodyParser = require( 'body-parser');
 
 //uses
 app.use(express.static( 'server/public' ));
+app.use(express.urlencoded({extended: true}));
 
 //global
 const port = 5000;
+let messages = [];
 
 //spin up a server
 app.listen( port, () =>{
@@ -16,10 +19,11 @@ app.listen( port, () =>{
 //routes
 app.get( '/messages', (req, res) => {
     console.log('in /messages GET');
-    res.send('meow');
+    res.send( messages );
 });
 
 app.post( '/messages', ( req, res)=>{
     console.log( 'in /messages POST', req.body );
-    res.send( 'ribbet' );
+    messages.push( req.body );
+    res.send( 201 );
 });

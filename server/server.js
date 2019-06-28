@@ -14,3 +14,12 @@ app.listen( port, () =>{
 })
 
 //routes
+app.get( '/messages', (req, res) => {
+    console.log('in /messages GET');
+    res.send('meow');
+});
+
+app.post( '/messages', ( req, res)=>{
+    console.log( 'in /messages POST', req.body );
+    res.send( 'ribbet' );
+});

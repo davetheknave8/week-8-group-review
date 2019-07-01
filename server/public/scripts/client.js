@@ -19,7 +19,7 @@ function getMessages(){
         el.empty()
         //loop through response
         for(let currentObject of response){
-            el.append(`<li>Username: ${currentObject.userName} Message: ${currentObject.messageText}</li>`)
+            el.append(`<li>Username: ${currentObject.userName}<br /> Message: ${currentObject.messageText}</li>`)
         }
         // append each message to output element
     }).catch( function(error){

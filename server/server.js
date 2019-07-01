@@ -10,7 +10,7 @@ app.use(express.urlencoded({extended: true}));
 //For heroku, we can't control the port #
 //Get if from the process running the server if it is set
 //If not it will be set to 5000
-const port = process.env.PORT || 5000;
+const port = process.env.port || 5000;
 let messages = [];
 
 //spin up a server
